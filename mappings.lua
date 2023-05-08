@@ -1,6 +1,4 @@
 -- For Harpoon Keybinds
-local mark = require "harpoon.mark"
-local ui = require "harpoon.ui"
 
 -- Mapping data with "desc" stored directly by vim.keymap.set().
 --
@@ -27,28 +25,18 @@ return {
     -- Change directory --
     ["<leader>cd"] = { ":cd %:h", desc = "Changes nvim dir relative to dir of file" },
     ["<leader>ch"] = { ":cd ~<cr>" },
-    -- Rename variables --
-    ["<leader>r"] = { ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gc<Left><Left><Left>" },
-    ["<leader>R"] = { ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>" },
-    -- Harpoon --
-    ["<leader>a"] = { mark.add_file },
-    ["<C-p>"] = { ui.toggle_quick_menu },
-    -- Row One
-    ["<leader>jq"] = { function() ui.nav_file(1) end },
-    ["<leader>jw"] = { function() ui.nav_file(2) end },
-    ["<leader>je"] = { function() ui.nav_file(3) end },
-    ["<leader>jr"] = { function() ui.nav_file(4) end },
-    -- Row Two
-    ["<leader>ja"] = { function() ui.nav_file(5) end },
-    ["<leader>js"] = { function() ui.nav_file(6) end },
-    ["<leader>jd"] = { function() ui.nav_file(7) end },
-    ["<leader>jf"] = { function() ui.nav_file(8) end },
     -- Other Keybinds --
-    ["Z"] = { ":" },
-    ["<leader>s"] = { ":UndotreeToggle<CR>" },
+    ["Z"] = { ":sp<CR>", desc = "Horizontal Split" },
+    ["<leader>r"] = { "<Plug>CtrlSFCwordPath", desc = "Refactor" },
+    ["<leader>s"] = { ":UndotreeToggle<CR>", desc = "Undotree" },
+    ["<leader>k"] = { ":UndotreeFocus<CR>", desc = "Undotree" },
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    ["<C-h>"] = false,
+    ["<C-j>"] = false,
+    ["<C-k>"] = false,
+    ["<C-l>"] = false,
   },
 }
